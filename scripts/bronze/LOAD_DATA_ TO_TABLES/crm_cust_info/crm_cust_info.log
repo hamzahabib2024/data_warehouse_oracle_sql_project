@@ -1,0 +1,61 @@
+
+SQL*Loader: Release 11.2.0.1.0 - Production on Fri Jan 30 19:21:51 2026
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+Control File:   crm_cust_info.ctl
+Data File:      F:/COURSES/DATABASE/sql-data-warehouse-project-main/sql-data-warehouse-project-main/datasets/source_crm/cust_info.csv
+  Bad File:     cust_info.bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 1
+Errors allowed: 50
+Bind array:     64 rows, maximum of 256000 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table CRM_CUST_INFO, loaded from every logical record.
+Insert option in effect for this table: TRUNCATE
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+CST_ID                              FIRST     *   ,  O(") CHARACTER            
+CST_KEY                              NEXT     *   ,  O(") CHARACTER            
+CST_FIRSTNAME                        NEXT     *   ,  O(") CHARACTER            
+CST_LASTNAME                         NEXT     *   ,  O(") CHARACTER            
+CST_MARITAL_STATUS                   NEXT     *   ,  O(") CHARACTER            
+CST_GNDR                             NEXT     *   ,  O(") CHARACTER            
+CST_CREATE_DATE                      NEXT     *   ,  O(") DATE YYYY-MM-DD      
+
+Record 18447: Rejected - Error on table CRM_CUST_INFO, column CST_CREATE_DATE.
+Column not found before end of logical record (use TRAILING NULLCOLS)
+Record 18483: Rejected - Error on table CRM_CUST_INFO, column CST_CREATE_DATE.
+Column not found before end of logical record (use TRAILING NULLCOLS)
+Record 18493: Rejected - Error on table CRM_CUST_INFO, column CST_CREATE_DATE.
+Column not found before end of logical record (use TRAILING NULLCOLS)
+Record 18494: Rejected - Error on table CRM_CUST_INFO, column CST_CREATE_DATE.
+Column not found before end of logical record (use TRAILING NULLCOLS)
+
+Table CRM_CUST_INFO:
+  18490 Rows successfully loaded.
+  4 Rows not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                 115584 bytes(64 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          1
+Total logical records read:         18494
+Total logical records rejected:         4
+Total logical records discarded:        0
+
+Run began on Fri Jan 30 19:21:51 2026
+Run ended on Fri Jan 30 19:21:54 2026
+
+Elapsed time was:     00:00:02.78
+CPU time was:         00:00:00.44

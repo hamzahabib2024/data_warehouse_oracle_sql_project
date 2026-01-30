@@ -1,0 +1,56 @@
+
+SQL*Loader: Release 11.2.0.1.0 - Production on Fri Jan 30 20:03:01 2026
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+Control File:   crm_prd_info.ctl
+Data File:      F:/COURSES/DATABASE/sql-data-warehouse-project-main/sql-data-warehouse-project-main/datasets/source_crm/prd_info.csv
+  Bad File:     prd_info.bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 1
+Errors allowed: 50
+Bind array:     64 rows, maximum of 256000 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table CRM_PRD_INFO, loaded from every logical record.
+Insert option in effect for this table: TRUNCATE
+TRAILING NULLCOLS option in effect
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+PRD_ID                              FIRST     *   ,  O(") CHARACTER            
+PRD_KEY                              NEXT     *   ,  O(") CHARACTER            
+PRD_NM                               NEXT     *   ,  O(") CHARACTER            
+PRD_COST                             NEXT     *   ,  O(") CHARACTER            
+PRD_LINE                             NEXT     *   ,  O(") CHARACTER            
+PRD_START_DT                         NEXT     *   ,  O(") DATE YYYY-MM-DD      
+    NULL if PRD_START_DT = BLANKS
+PRD_END_DT                           NEXT     *   ,  O(") DATE YYYY-MM-DD      
+    NULL if PRD_END_DT = BLANKS
+
+
+Table CRM_PRD_INFO:
+  397 Rows successfully loaded.
+  0 Rows not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                 115584 bytes(64 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          1
+Total logical records read:           397
+Total logical records rejected:         0
+Total logical records discarded:        0
+
+Run began on Fri Jan 30 20:03:01 2026
+Run ended on Fri Jan 30 20:03:01 2026
+
+Elapsed time was:     00:00:00.48
+CPU time was:         00:00:00.14
