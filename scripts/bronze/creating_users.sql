@@ -33,6 +33,23 @@ grant
     create sequence
 to bronze_user;
 
+GRANT
+    CREATE PROCEDURE,
+    CREATE TRIGGER,
+    CREATE TYPE,
+    UNLIMITED TABLESPACE
+TO bronze_user;
+
+GRANT 
+    SELECT, INSERT, UPDATE, DELETE
+ON silver_user.crm_cust_info
+TO bronze_user;
+
+-- GRANT 
+--     SELECT, INSERT, UPDATE, DELETE
+-- ON gold_user.final_cust_info
+-- TO bronze_user;
+
 
 --================
 --for silver_user
@@ -52,6 +69,20 @@ grant
 to silver_user;
 
 
+GRANT 
+    CREATE PROCEDURE,
+    CREATE TRIGGER,
+    CREATE TYPE,
+    UNLIMITED TABLESPACE
+TO silver_user;
+
+
+-- GRANT 
+--     SELECT, INSERT, UPDATE, DELETE
+-- ON gold_user.final_cust_info
+-- TO silver_user;
+
+
 --================
 --for gold_user
 --================
@@ -69,7 +100,32 @@ grant
     create sequence
 to gold_user;
 
+GRANT 
+    CREATE PROCEDURE,
+    CREATE TRIGGER,
+    CREATE TYPE,
+    UNLIMITED TABLESPACE
+TO gold_user;
 
 
+---------------------------------------------------------------------------------------------------------------------
+
+GRANT 
+    ALTER ANY TABLE,
+    DROP ANY TABLE,
+    EXECUTE ANY PROCEDURE
+TO bronze_user;
+
+GRANT 
+    ALTER ANY TABLE,
+    DROP ANY TABLE,
+    EXECUTE ANY PROCEDURE
+TO silver_user;
+
+GRANT 
+    ALTER ANY TABLE,
+    DROP ANY TABLE,
+    EXECUTE ANY PROCEDURE
+TO gold_user;
 
 

@@ -426,6 +426,30 @@ FROM BRONZE_USER.erp_loc_a101;
 --              Checking the table: "erp_px_cat_g1v2"   
 -- =============================================================
 
+SELECT 
+    ID
+FROM BRONZE_USER.erp_px_cat_g1v2
+WHERE ID IS NULL OR TRIM(ID) = '';
+
+SELECT 
+    CAT
+FROM BRONZE_USER.erp_px_cat_g1v2
+WHERE CAT != TRIM(CAT) OR SUBCAT != TRIM(SUBCAT) OR MAINTENANCE != TRIM(MAINTENANCE);
+-- it is okay no unwanted spaces.
+
+SELECT DISTINCT
+    CAT
+FROM BRONZE_USER.erp_px_cat_g1v2;
+
+SELECT DISTINCT
+    SUBCAT
+FROM BRONZE_USER.erp_px_cat_g1v2;
+
+SELECT DISTINCT
+    MAINTENANCE
+FROM BRONZE_USER.erp_px_cat_g1v2;
+
+
 SELECT
     *
 FROM BRONZE_USER.erp_px_cat_g1v2;
@@ -433,3 +457,10 @@ FROM BRONZE_USER.erp_px_cat_g1v2;
 SELECT
     *
 FROM BRONZE_USER.CRM_PRD_INFO;
+
+
+SELECT DATA_TYPE 
+FROM ALL_TAB_COLUMNS
+WHERE TABLE_NAME = 'ERP_LOC_A101'
+  AND COLUMN_NAME = 'CNTRY'
+  AND OWNER = 'BRONZE_USER';
