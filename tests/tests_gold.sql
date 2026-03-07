@@ -1,0 +1,68 @@
+SELECT COUNT(*)
+FROM
+    (SELECT 
+        ci.CST_ID,
+        ci.CST_KEY,
+        ci.CST_FIRST_NAME,
+        ci.CST_LAST_NAME,
+        ci.CST_MARITAL_STATUS,
+        ci.CST_GNDR,
+        ca.GEN,
+        ci.CST_CREATE_DATE,
+        ca.BDATE,
+        la.CNTRY
+
+    FROM SILVER_USER.crm_cust_info ci
+    LEFT JOIN SILVER_USER.ERP_CUST_AZ12 ca
+    ON ci.CST_KEY = ca.CID
+    LEFT JOIN SILVER_USER.ERP_LOC_A101 la
+    ON ci.CST_KEY = la.CID)
+    GROUP BY CST_KEY
+    HAVING COUNT(*) > 1;
+
+    -- THERE IS NO DUPLICATE ABOVE RECORDS.
+
+
+
+
+
+SELECT 
+    ci.CST_ID,
+    ci.CST_KEY,
+    ci.CST_FIRST_NAME,
+    ci.CST_LAST_NAME,
+    ci.CST_MARITAL_STATUS,
+    CASE WHEN
+        ci.CST_GNDR = 'n/a' THEN ca.GEN
+        ELSE ci.CST_GNDR
+    END AS GENDER,
+    ci.CST_GNDR,
+    ca.GEN,
+    ci.CST_CREATE_DATE,
+    ca.BDATE,
+    la.CNTRY
+    
+FROM SILVER_USER.crm_cust_info ci
+LEFT JOIN SILVER_USER.ERP_CUST_AZ12 ca
+ON ci.CST_KEY = ca.CID
+LEFT JOIN SILVER_USER.ERP_LOC_A101 la
+ON ci.CST_KEY = la.CID
+WHERE ci.CST_GNDR = 'n/a' AND ca.GEN != 'n/a';
+-- NOW THE GENDER VALUE IS CORRECTED IN THE ABOVE RECORDS.
+
+
+
+
+DESC SILVER_USER.ERP_CUST_AZ12;
+DESC SILVER_USER.CRM_CUST_INFO;
+DESC SILVER_USER.ERP_LOC_A101;
+
+SELECT * 
+FROM SILVER_USER.ERP_CUST_AZ12;
+
+SELECT * 
+FROM SILVER_USER.ERP_LOC_A101;
+
+
+
+
