@@ -66,3 +66,28 @@ FROM SILVER_USER.ERP_LOC_A101;
 
 
 
+------------------------------------------------------------------------------------------------------------------------------------------------
+-- TEST ON THE VIEW_02_GOLD_DIM_PRODUCTS
+SELECT PRD_KEY, COUNT(*)
+FROM
+    (SELECT 
+        PN.PRD_ID,
+        PN.CAT_ID,
+        PN.PRD_KEY,
+        PN.PRD_NM,
+        PN.PRD_COST,
+        PN.PRD_LINE,
+        PN.PRD_START_DT,
+        PN.PRD_END_DT,
+        PC.CAT,
+        PC.SUBCAT,
+        PC.MAINTENANCE
+
+    FROM SILVER_USER.CRM_PRD_INFO PN
+    LEFT JOIN SILVER_USER.ERP_PX_CAT_G1V2 PC
+    ON PN.CAT_ID = PC.ID
+    WHERE PRD_END_DT IS NULL)
+    GROUP BY PRD_KEY
+    HAVING COUNT(*) > 1;
+
+    -- THERE IS NO DUPLICATE ABOVE RECORDS.
